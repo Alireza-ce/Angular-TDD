@@ -12,8 +12,11 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { LoginComponent } from './components/login/login.component';
-import {MatIconModule} from '@angular/material/icon'; 
-
+import { MatIconModule } from '@angular/material/icon';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from 'src/environments/environment';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 @NgModule({
   declarations: [AppComponent, LoginComponent],
   imports: [
@@ -28,7 +31,10 @@ import {MatIconModule} from '@angular/material/icon';
     MatBottomSheetModule,
     MatDialogModule,
     MatTabsModule,
-    MatIconModule
+    MatIconModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent],
